@@ -1,9 +1,10 @@
 {
   "dependencies": {
+    "@chakra-ui/react": "^3.22.0",
     "@google/generative-ai": "^0.17.1",
-    "axios": "^1.7.6",
+    "axios": "^1.10.0",
     "backend": "file:",
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "^1.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
