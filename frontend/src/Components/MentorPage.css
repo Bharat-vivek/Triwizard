@@ -1,0 +1,164 @@
+.mentordetails{
+    display: flex;
+    flex-direction: column;
+}
+.mentor-dash{
+    display: flex;
+    justify-content: end;
+}
+.low-attendance-section{
+    margin-bottom: 2rem;
+    color:red;
+}
+
+.navbar .mentor-dash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.mentordetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.mentordetails .mentor-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.mentordetails .mentor-id,
+.mentordetails .mentor-role {
+    font-size: 1rem;
+    
+}
+
+.navbar .btn {
+    color: rgb(0, 0, 0);
+    background: rgb(153, 255, 0);
+}
+
+/* Container styling */
+.container {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.container h2 {
+    margin-top: 1rem;
+}
+
+/* Chart and table styling */
+.chart, .pie-chart, .feedback-section, .low-attendance-section {
+    margin-top: 2rem;
+}
+
+.table {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Student list styling */
+.student-list .list-group-item {
+    cursor: pointer;
+}
+
+.student-list .list-group-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.create-quiz-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-quiz-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #343a40;
+  }
+  
+  .create-quiz-section button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-quiz-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Modal Styles */
+  .modal-content {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+    color: #495057;
+  }
+  
+  .modal-body {
+    padding: 2rem;
+  }
+  
+  form label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+  }
+  
+  form input[type="text"],
+  form input[type="datetime-local"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  form input[type="text"] {
+    font-size: 1rem;
+  }
+  
+  form input[type="datetime-local"] {
+    font-size: 0.875rem;
+  }
+  
+  /* Form Button */
+  .form-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+  }

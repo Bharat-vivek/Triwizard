@@ -1,0 +1,153 @@
+.carousel {
+  max-height: 300px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.carousel-inner {
+  max-height: 300px;
+}
+
+.carousel-item img {
+  max-height: 300px;
+}
+
+.navbar-logindashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+}
+
+.navbar-left {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginpage-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: #444;
+}
+
+.container-logindashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.info-section {
+  width: 50%;
+  padding: 20px;
+}
+
+.carousel-section {
+  width: 50%;
+  padding: 20px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.iframe-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.iframe-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.iframe-container iframe {
+  width: 850px;
+  height: 450px;
+  border: none;
+  display: none;
+}
+
+.iframe-container.enlarged iframe {
+  display: block;
+}

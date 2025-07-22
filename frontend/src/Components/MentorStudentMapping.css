@@ -1,0 +1,41 @@
+.mentor-student-mapping {
+    padding: 20px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.attendance-details {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.attendance-details p {
+    margin: 5px 0;
+}
+
+.student-details-section,
+.mentor-details-section {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

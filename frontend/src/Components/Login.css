@@ -1,0 +1,121 @@
+.loginpage {
+  background-image: url('p3.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logincontainer {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+}
+
+.loginheading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.loginsubheading {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.loginform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginform label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.loginform input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.loginform select {
+  background-position: right 10px top 50%;
+  background-repeat: no-repeat;
+  padding-right: 30px;
+}
+
+
+.loginbutton {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginbutton:hover {
+  background-color: #3e8e41;
+}
+
+.loginfooter {
+  font-size: 16px;
+  margin-top: 20px;
+  color: #666;
+}
+
+.loginlink {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.loginlink:hover {
+  color: #3e8e41;
+}
+
+/* Responsive design */
+
+@media only screen and (max-width: 768px) {
+  .logincontainer {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .logincontainer {
+    width: 100%;
+    padding: 10px;
+  }
+  .loginform input {
+    padding: 5px;
+  }
+  .loginbutton {
+    padding: 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .loginheading {
+    font-size: 18px;
+  }
+  .loginsubheading {
+    font-size: 14px;
+  }
+  .loginform label {
+    font-size: 14px;
+  }
+}
