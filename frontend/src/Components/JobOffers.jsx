@@ -12,109 +12,147 @@ import {
   Th,
   Td,
   Link,
+  Flex,
+  useToast,
+  Text,
 } from '@chakra-ui/react';
 
 function JobOffer() {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
+  const toast = useToast();
 
   const handleSearch = async () => {
+    if (!searchTerm.trim()) {
+      toast({
+        title: 'Search term is empty.',
+        description: 'Please enter a keyword to search for internships.',
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
     try {
       const response = await axios.get(`http://localhost:3000/scrape/${encodeURIComponent(searchTerm)}`);
       setResults(response.data);
     } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch internships. Please try again.',
+        status: 'error',
+        duration: 4000,
+        isClosable: true,
+      });
       console.error('Error fetching data:', error);
     }
   };
 
   return (
     <Box
-      w="100vw" // set width to full window width
-      h="100vh" // set height to full window height
-      p={4}
-      bgColor="#d1f1f0" // wheat color
+      w="100vw"
+      minH="100vh"
+      p={{ base: 4, md: 8 }}
+      bgGradient="linear(to-r, teal.100, blue.100)"
     >
       <Heading
         as="h1"
-        size="lg"
-        mb={4}
-        color="black" // set heading color to black
+        size="2xl"
+        textAlign="center"
+        mb={10}
+        color="teal.800"
       >
-        Internship Search
+        🔍 Internship Explorer
       </Heading>
-      <Input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Enter topic..."
-        size="xl" // increased size to xl
-        mb={15}
-        mt={15}
-        fontSize="lg" // increased font size to lg
-        py={9} // increased padding to make the input taller
-        px={6} // increased padding to make the input wider
-        w="100%" // set input width to 100%
-      />
-      <Button
-        onClick={handleSearch}
-        colorScheme="blue"
-        size="xl" // increased size to xl
-        mb={4}
-        ml={10}
-        fontSize="lg" // increased font size to lg
-        py={10} // increased padding to make the button taller
-        px={16} // increased padding to make the button wider
-        _hover={{
-          transform: 'scale(1.1)',
-          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.35)',
-        }}
-        _active={{
-          transform: 'scale(0.9)',
-          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.35)',
-        }}
-      >
-        Search
-      </Button>
 
-      {results.length > 0 && (
-        <Table
-          variant="striped"
-          colorScheme="gray"
-          border="1px solid #ddd"
-          borderRadius="10px"
-          boxShadow="10px 10px 30px rgba(0, 0, 0, 0.85)"
-          bg="gray.50" // set table background color to light gray
-          maxWidth="100vw"// fit to the window screen
-          overflowX="auto" // add horizontal scrollbar when table is too wide
-          mt={{ base: 10, md: 15, lg: 20 }} // set responsive margin top
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        gap={4}
+        align="center"
+        justify="center"
+        mb={10}
+      >
+        <Input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Enter a keyword (e.g., React, Python, Design)"
+          size="lg"
+          w={{ base: '100%', md: '60%' }}
+          bg="white"
+          borderColor="teal.400"
+          _focus={{ borderColor: 'blue.500', boxShadow: '0 0 0 1px blue.500' }}
+        />
+        <Button
+          onClick={handleSearch}
+          colorScheme="teal"
+          size="lg"
+          px={10}
+          py={6}
+          fontWeight="bold"
+          _hover={{
+            transform: 'scale(1.05)',
+            bg: 'teal.500',
+            color: 'white',
+          }}
+          _active={{
+            transform: 'scale(0.95)',
+            bg: 'teal.700',
+          }}
         >
-          <Thead>
-            <Tr borderBottom="1px solid #ddd">
-              <Th px={6} py={4} borderRight="1px solid #ddd">Job Title</Th>
-              <Th px={6} py={4} borderRight="1px solid #ddd">Company Name</Th>
-              <Th px={6} py={4} borderRight="1px solid #ddd">Location</Th>
-              <Th px={6} py={4} borderRight="1px solid #ddd">Duration</Th>
-              <Th px={6} py={4} borderRight="1px solid #ddd">Stipend</Th>
-              <Th px={6} py={4}>Link</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {results.map((internship, index) => (
-              <Tr key={index} borderBottom="1px solid #ddd" py={4}>
-                <Td px={6} py={4} borderRight="1px solid #ddd">{internship.jobTitle}</Td>
-                <Td px={6} py={4} borderRight="1px solid #ddd">{internship.companyName}</Td>
-                <Td px={6} py={4} borderRight="1px solid #ddd">{internship.location}</Td>
-                <Td px={6} py={4} borderRight="1px solid #ddd">{internship.duration}</Td>
-                <Td px={6} py={4} borderRight="1px solid #ddd">{internship.stipend}</Td>
-                <Td px={6} py={4}>
-                  <Link href={internship.link} target="_blank" rel="noopener noreferrer">
-                    Apply
-                  </Link>
-                </Td>
+          🚀 Search
+        </Button>
+      </Flex>
+
+      {results.length > 0 ? (
+        <Box
+          overflowX="auto"
+          borderRadius="md"
+          boxShadow="xl"
+          bg="white"
+          p={4}
+        >
+          <Table variant="simple" size="md">
+            <Thead bg="teal.500">
+              <Tr>
+                {['Job Title', 'Company', 'Location', 'Duration', 'Stipend', 'Apply'].map((heading, i) => (
+                  <Th key={i} color="white" textAlign="center">{heading}</Th>
+                ))}
               </Tr>
-            ))}
-          </Tbody>
-        </Table>
+            </Thead>
+            <Tbody>
+              {results.map((internship, index) => (
+                <Tr
+                  key={index}
+                  _hover={{ bg: 'gray.100', transition: '0.2s' }}
+                >
+                  <Td textAlign="center">{internship.jobTitle}</Td>
+                  <Td textAlign="center">{internship.companyName}</Td>
+                  <Td textAlign="center">{internship.location}</Td>
+                  <Td textAlign="center">{internship.duration}</Td>
+                  <Td textAlign="center">{internship.stipend}</Td>
+                  <Td textAlign="center">
+                    <Link
+                      href={internship.link}
+                      color="blue.500"
+                      fontWeight="bold"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      _hover={{ textDecoration: 'underline' }}
+                    >
+                      Apply
+                    </Link>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      ) : (
+        <Text textAlign="center" fontSize="lg" color="gray.700" mt={10}>
+          {searchTerm ? 'No internships found. Try another keyword.' : 'Start your search to find internships.'}
+        </Text>
       )}
     </Box>
   );
